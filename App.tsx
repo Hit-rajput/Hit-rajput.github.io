@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import FilterBar from './components/FilterBar';
 import ProjectGrid from './components/ProjectGrid';
+import Skills from './components/Skills';
 import Footer from './components/Footer';
 import { Category } from './types';
 
@@ -21,18 +22,20 @@ const App: React.FC = () => {
       {/* Content Wrapper */}
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
-        
+
         <main className="flex-1 flex flex-col items-center w-full">
           <Hero />
-          
-          <FilterBar 
-            activeCategory={activeCategory} 
-            onCategoryChange={setActiveCategory} 
+
+          <FilterBar
+            activeCategory={activeCategory}
+            onCategoryChange={setActiveCategory}
           />
-          
+
           <ProjectGrid activeCategory={activeCategory} />
+
+          <Skills />
         </main>
-        
+
         <Footer />
       </div>
     </div>

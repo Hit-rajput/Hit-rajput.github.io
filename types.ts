@@ -1,4 +1,4 @@
-export type Category = 'ALL' | 'DATA VISUALIZATION' | 'CREATIVE CODING' | 'DATA SCIENCE';
+export type Category = 'ALL' | 'MACHINE LEARNING' | 'DATA VISUALIZATION' | 'CLOUD & ENGINEERING';
 
 export interface TechItem {
   name: string;
@@ -13,7 +13,7 @@ export interface Project {
   image: string;
   description?: string; // Short description
   customStyles?: string; // For things like "invert" or "hue-rotate" seen in HTML
-  
+
   // Expanded View Data
   overview: string;
   detailedDescription: string;

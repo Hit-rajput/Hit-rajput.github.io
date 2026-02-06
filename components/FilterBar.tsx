@@ -9,9 +9,9 @@ interface FilterBarProps {
 const FilterBar: React.FC<FilterBarProps> = ({ activeCategory, onCategoryChange }) => {
   const categories: { label: string; value: Category }[] = [
     { label: 'ALL CATEGORIES', value: 'ALL' },
+    { label: 'MACHINE LEARNING & AI', value: 'MACHINE LEARNING' },
     { label: 'DATA VISUALIZATION', value: 'DATA VISUALIZATION' },
-    { label: 'CREATIVE CODING', value: 'CREATIVE CODING' },
-    { label: 'DATA SCIENCE', value: 'DATA SCIENCE' },
+    { label: 'CLOUD & SOFTWARE ENGINEERING', value: 'CLOUD & ENGINEERING' },
   ];
 
   return (
@@ -26,8 +26,8 @@ const FilterBar: React.FC<FilterBarProps> = ({ activeCategory, onCategoryChange 
                 onClick={() => onCategoryChange(cat.value)}
                 className={`
                   px-5 py-2 rounded-full text-xs md:text-sm font-bold tracking-wider transition-all duration-300
-                  ${isActive 
-                    ? 'bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)] border border-white/20' 
+                  ${isActive
+                    ? 'bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)] border border-white/20'
                     : 'text-text-muted hover:text-white hover:bg-white/5 border border-transparent'}
                 `}
               >
