@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
           </a>
         </div>
         <div className="text-white/20 text-[10px] tracking-[0.2em]">
-          © 2023 HANNAH YAN HAN. ALL RIGHTS RESERVED.
+          © 2023 HITESH. ALL RIGHTS RESERVED.
         </div>
       </div>
     </footer>

@@ -12,12 +12,7 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 md:px-12 transition-all duration-300 backdrop-blur-md bg-background/50 border-b border-white/5">
       <div className="max-w-[1600px] mx-auto flex items-center justify-between">
-        {/* Logo / Brand (Optional, assuming left empty in previous design but adding placeholder if needed, otherwise keeping layout) */}
-        <div className="text-xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-accent-primary to-accent-secondary">
-          HYH
-        </div>
-
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation moved to the left side */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -31,9 +26,14 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        {/* Mobile Menu Toggle */}
+        {/* Brand logo shortened to 'H' and moved to the right side */}
+        <div className="text-2xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-accent-primary to-accent-secondary order-last">
+          H
+        </div>
+
+        {/* Mobile Menu Toggle (visible on smaller screens) */}
         <div 
-          className="md:hidden text-text-main cursor-pointer"
+          className="md:hidden text-text-main cursor-pointer order-first"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <span className="material-symbols-outlined select-none">
