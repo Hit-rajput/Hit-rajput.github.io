@@ -41,10 +41,11 @@ export const PROJECTS: Project[] = [
     title: 'Ishkode - Evolutionary Wildfire Prediction',
     category: 'PYTHON / GENETIC ALGORITHMS',
     filterCategory: 'MACHINE LEARNING',
-    image: forestFireGif, // Placeholder using mountain/forest theme
+    image: ishkodeImg, // Main image
     overview: 'Optimizing feature selection for detecting "Mega-Fire" events.',
     detailedDescription: 'A research initiative proposing a novel Genetic Algorithm (GA) to optimize feature selection for detecting "Mega-Fire" events in the Cariboo region. It implements KDTree spatial indexing to merge satellite fire perimeters with ERA5 weather data and moves beyond standard classification to handle high-imbalance datasets.',
     gallery: [
+      ishkodeImg,
       forestFireGif
     ],
     techStack: [
