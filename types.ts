@@ -21,6 +21,7 @@ export interface Project {
   techStack: TechItem[];
   liveUrl?: string;
   repoUrl?: string;
+  embedCode?: string; // HTML embed code for Tableau/PowerBI
 }
 
 export interface NavItem {

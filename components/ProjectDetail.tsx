@@ -7,6 +7,20 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
+  // Inject Tableau script if needed
+  React.useEffect(() => {
+    if (project.embedCode) {
+      const scriptId = 'tableau-viz-script';
+      if (!document.getElementById(scriptId)) {
+        const script = document.createElement('script');
+        script.id = scriptId;
+        script.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    }
+  }, [project.embedCode]);
+
   return (
     <div className="w-full max-w-[1400px] mx-auto animate-fade-in-up">
       {/* Back / Close Action */}
@@ -94,12 +108,16 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
             <div className="flex flex-col gap-4 sticky top-6">
               {/* Main Hero Image */}
               <div className="rounded-xl overflow-hidden border border-white/10 shadow-lg group relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className={`w-full h-auto object-cover max-h-[500px] ${project.customStyles || ''}`}
-                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                {project.embedCode ? (
+                  <div className="w-full overflow-hidden" dangerouslySetInnerHTML={{ __html: project.embedCode }}></div>
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className={`w-full h-auto object-cover max-h-[500px] ${project.customStyles || ''}`}
+                  />
+                )}
               </div>
 
               {/* Thumbnails / Additional Images (Horizontal Scroll) */}
@@ -119,5 +137,4 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
     </div>
   );
 };
-
 export default ProjectDetail;
