@@ -21,15 +21,15 @@
         theme: {
           extend: {
             colors: {
-              background: "#050505",
-              "glass-surface": "rgba(255, 255, 255, 0.03)",
-              "glass-highlight": "rgba(255, 255, 255, 0.08)",
-              "glass-border": "rgba(255, 255, 255, 0.1)",
-              "accent-primary": "#22d3ee", /* Cyan */
-              "accent-secondary": "#a855f7", /* Purple */
-              "accent-glow": "#ef4444", /* Red/Pink */
-              "text-main": "#ffffff",
-              "text-muted": "#94a3b8",
+              background: "rgba(var(--background))",
+              "glass-surface": "rgba(var(--glass-surface))",
+              "glass-highlight": "rgba(var(--glass-highlight))",
+              "glass-border": "rgba(var(--glass-border))",
+              "accent-primary": "rgba(var(--accent-primary))",
+              "accent-secondary": "rgba(var(--accent-secondary))",
+              "accent-glow": "rgba(var(--accent-glow))",
+              "text-main": "rgba(var(--text-main))",
+              "text-muted": "rgba(var(--text-muted))",
             },
             fontFamily: {
               display: ["Manrope", "sans-serif"],
@@ -52,22 +52,46 @@
       };
     </script>
     <style>
+      :root {
+        --background: 255, 255, 255, 1;
+        --glass-surface: 0, 0, 0, 0.03;
+        --glass-highlight: 0, 0, 0, 0.05;
+        --glass-border: 0, 0, 0, 0.1;
+        --accent-primary: 6, 182, 212, 1; /* Cyan-500 */
+        --accent-secondary: 168, 85, 247, 1; /* Purple-500 */
+        --accent-glow: 239, 68, 68, 1; /* Red-500 */
+        --text-main: 15, 23, 42, 1; /* Slate-900 */
+        --text-muted: 100, 116, 139, 1; /* Slate-500 */
+      }
+      .dark {
+        --background: 5, 5, 5, 1;
+        --glass-surface: 255, 255, 255, 0.03;
+        --glass-highlight: 255, 255, 255, 0.08;
+        --glass-border: 255, 255, 255, 0.1;
+        --accent-primary: 34, 211, 238, 1; /* Cyan-400 */
+        --accent-secondary: 192, 132, 252, 1; /* Purple-400 */
+        --accent-glow: 248, 113, 113, 1; /* Red-400 */
+        --text-main: 255, 255, 255, 1;
+        --text-muted: 148, 163, 184, 1; /* Slate-400 */
+      }
+
       body {
-        background-color: #050505;
-        color: #ffffff;
+        background-color: rgba(var(--background));
+        color: rgba(var(--text-main));
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #0f172a;
+        background: rgba(var(--background));
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155;
+        background: rgba(var(--text-muted), 0.5);
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #475569;
+        background: rgba(var(--text-muted), 0.8);
       }
       
       /* Masonry Layout */
@@ -92,10 +116,10 @@
 
       /* Liquid Glass Utilities */
       .glass-panel {
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(var(--glass-surface));
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(var(--glass-border));
       }
     </style>
 
@@ -104,11 +128,13 @@
   "imports": {
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
     "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4"
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@0.475.0",
+    "framer-motion": "https://esm.sh/framer-motion@12.4.2"
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-DqNcvgzM.js"></script>
+  <script type="module" crossorigin src="/assets/index-t3E8KTT_.js"></script>
 </head>
   <body class="bg-background font-display text-text-main antialiased overflow-x-hidden selection:bg-accent-primary selection:text-black">
     <div id="root"></div>
