@@ -1,4 +1,27 @@
 import { Project } from './types';
+import ishkodeImg from './Images/Forest_Region_overay.png';
+import ferImg from './Images/Face_stucture.png';
+import ferHistImg from './Images/Face_histogram.png';
+
+import gameConsoleImg from './Images/Game_console.png';
+import forestFireGif from './Images/Forest_fires.gif';
+
+// Supply Risk Monitor Images
+import annualCollision from './Images/Supply_risk_monitor/Annual Collision Trend.png';
+import weeklyCollision from './Images/Supply_risk_monitor/Weekly Collision Pattern.png';
+import demoHist from './Images/Supply_risk_monitor/demographic_histogram.png';
+import heatmap from './Images/Supply_risk_monitor/heatmap.png';
+import seasonalChart from './Images/Supply_risk_monitor/seasonal_chart.png';
+import severityStacked from './Images/Supply_risk_monitor/severity_stacked_bar.png';
+import tSeasonalChart from './Images/Supply_risk_monitor/t_seasonal_chart.png';
+import torontoAnnual from './Images/Supply_risk_monitor/toronto_annual_trend.png';
+import torontoHex from './Images/Supply_risk_monitor/toronto_hexbin_density.png';
+import torontoHourly from './Images/Supply_risk_monitor/toronto_hourly_dual_axis.png';
+import torontoSeverity from './Images/Supply_risk_monitor/toronto_severity_pie.png';
+import torontoVuln from './Images/Supply_risk_monitor/toronto_vulnerability_index.png';
+import torontoWeekly from './Images/Supply_risk_monitor/toronto_weekly_pattern.png';
+import trendChart from './Images/Supply_risk_monitor/trend_chart.png';
+import violinPlot from './Images/Supply_risk_monitor/violin_plot.png';
 
 // Helper for icons (using devicon.dev for consistent high-quality icons)
 const icons = {
@@ -18,11 +41,11 @@ export const PROJECTS: Project[] = [
     title: 'Ishkode - Evolutionary Wildfire Prediction',
     category: 'PYTHON / GENETIC ALGORITHMS',
     filterCategory: 'MACHINE LEARNING',
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80', // Placeholder using mountain/forest theme
+    image: forestFireGif, // Placeholder using mountain/forest theme
     overview: 'Optimizing feature selection for detecting "Mega-Fire" events.',
     detailedDescription: 'A research initiative proposing a novel Genetic Algorithm (GA) to optimize feature selection for detecting "Mega-Fire" events in the Cariboo region. It implements KDTree spatial indexing to merge satellite fire perimeters with ERA5 weather data and moves beyond standard classification to handle high-imbalance datasets.',
     gallery: [
-      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'
+      forestFireGif
     ],
     techStack: [
       { name: 'Python', icon: icons.python },
@@ -36,11 +59,12 @@ export const PROJECTS: Project[] = [
     title: 'Hybrid Facial Emotion Recognition (FER)',
     category: 'TENSORFLOW / OPENCV',
     filterCategory: 'MACHINE LEARNING',
-    image: 'https://images.unsplash.com/photo-1620641788421-7f1c338e4200?auto=format&fit=crop&w=800&q=80', // Placeholder for AI/Face
+    image: ferImg, // Placeholder for AI/Face
     overview: 'Classifying 7 distinct human emotions with superior robustness.',
     detailedDescription: 'A hybrid computer vision system classifying 7 distinct human emotions with superior robustness to lighting changes. Integrated CNNs with manual feature descriptors (HOG + SIFT) to stabilize learning curves, outperforming standard CNN baselines on the CK+ dataset.',
     gallery: [
-      'https://images.unsplash.com/photo-1620641788421-7f1c338e4200?auto=format&fit=crop&w=800&q=80'
+      ferImg,
+      ferHistImg
     ],
     techStack: [
       { name: 'Python', icon: icons.python },
@@ -55,11 +79,11 @@ export const PROJECTS: Project[] = [
     title: 'Canadian Forest Fire Analytics',
     category: 'TABLEAU / GEO-ANALYSIS',
     filterCategory: 'DATA VISUALIZATION',
-    image: 'https://images.unsplash.com/photo-1598335624134-2e99ccab58e3?auto=format&fit=crop&w=800&q=80', // Placeholder for forest fire
+    image: forestFireGif, // Placeholder for forest fire
     overview: 'Comprehensive data story identifying trends from 10+ years of data.',
     detailedDescription: 'Engineered an animation-based geospatial map that visualizes the velocity and density of fire spread throughout the year. Correlated lightning-caused fires with higher intensity/area burned compared to human-caused fires, influencing resource allocation strategies.',
     gallery: [
-      'https://images.unsplash.com/photo-1598335624134-2e99ccab58e3?auto=format&fit=crop&w=800&q=80'
+      forestFireGif
     ],
     techStack: [
       { name: 'Tableau', icon: 'https://cdn.worldvectorlogo.com/logos/tableau-software.svg' },
@@ -72,11 +96,11 @@ export const PROJECTS: Project[] = [
     title: 'Global Console Game Sales Intelligence',
     category: 'TABLEAU / MARKET ANALYSIS',
     filterCategory: 'DATA VISUALIZATION',
-    image: 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=800&q=80', // Placeholder gaming
+    image: gameConsoleImg, // Placeholder gaming
     overview: 'Strategic dashboard exploring market dynamics across genres and platforms.',
     detailedDescription: 'Mapped the rise and fall of genre popularity over 35 years. Evaluated lifecycle success of top 3 platforms and discovered a strong linear correlation between NA and EU sales markets.',
     gallery: [
-      'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=800&q=80'
+      gameConsoleImg
     ],
     techStack: [
       { name: 'Tableau', icon: 'https://cdn.worldvectorlogo.com/logos/tableau-software.svg' }
@@ -88,11 +112,25 @@ export const PROJECTS: Project[] = [
     title: 'Supply Risk Monitor',
     category: 'POWER BI / PREDICTIVE MODELING',
     filterCategory: 'DATA VISUALIZATION',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80', // Healthcare/Medical
+    image: torontoHex, // Healthcare/Medical
     overview: 'Forecasting trauma-driven blood demand against donor supply capacity.',
     detailedDescription: 'Shifts healthcare logistics from descriptive reporting to prescriptive risk modeling. Visualizes the gap between projected trauma demand and donor availability to trigger proactive alerts.',
     gallery: [
-      'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80'
+      torontoHex,
+      annualCollision,
+      weeklyCollision,
+      demoHist,
+      heatmap,
+      seasonalChart,
+      severityStacked,
+      tSeasonalChart,
+      torontoAnnual,
+      torontoHourly,
+      torontoSeverity,
+      torontoVuln,
+      torontoWeekly,
+      trendChart,
+      violinPlot
     ],
     techStack: [
       { name: 'Power BI', icon: 'https://cdn.worldvectorlogo.com/logos/power-bi-1.svg' }
