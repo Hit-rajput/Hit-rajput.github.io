@@ -125,16 +125,18 @@ const Skills: React.FC = () => {
     };
 
     const tools = [
-        { name: 'Arc GIS', category: 'Geospatial', iconClass: 'fa-solid fa-earth-americas', colorClass: 'text-slate-600 dark:text-slate-300 group-hover:text-blue-600' },
-        { name: 'D3.js', category: 'Visualization', customIcon: 'D3', colorClass: 'text-orange-500 group-hover:text-orange-600' },
-        { name: 'Figma', category: 'Design', iconClass: 'fa-brands fa-figma', colorClass: 'text-slate-600 dark:text-slate-300 group-hover:text-purple-500' },
-        { name: 'InDesign', category: 'Publishing', customIcon: 'Id', colorClass: 'text-pink-600 group-hover:text-pink-700' },
-        { name: 'Power BI', category: 'Analytics', iconClass: 'fa-solid fa-chart-simple', colorClass: 'text-yellow-500 group-hover:text-yellow-600' },
-        { name: 'Python', category: 'Development', iconClass: 'fa-brands fa-python', colorClass: 'text-slate-600 dark:text-slate-300 group-hover:text-blue-500' },
-        { name: 'QGIS', category: 'Mapping', iconClass: 'fa-solid fa-leaf', colorClass: 'text-green-600 group-hover:text-green-700' },
-        { name: 'R Studio', category: 'Statistics', customIcon: 'R', colorClass: 'text-blue-700 group-hover:text-blue-800' },
+        { name: 'Python', category: 'Development', iconClass: 'fa-brands fa-python', colorClass: 'text-blue-500 group-hover:text-blue-600' },
+        { name: 'Tableau', category: 'Data Visualization', iconClass: 'material-icons-round', iconContent: 'hub', colorClass: 'text-indigo-500 group-hover:text-indigo-600' },
+        { name: 'Power BI', category: 'Business Intelligence', customIcon: 'PBI', colorClass: 'text-yellow-500 group-hover:text-yellow-600' },
         { name: 'SQL', category: 'Database', iconClass: 'fa-solid fa-database', colorClass: 'text-slate-600 dark:text-slate-300 group-hover:text-cyan-500' },
-        { name: 'Tableau', category: 'Dashboards', iconClass: 'material-icons-round', iconContent: 'hub', colorClass: 'text-indigo-500 group-hover:text-indigo-600' },
+        { name: 'TensorFlow', category: 'Machine Learning', customIcon: 'TF', colorClass: 'text-orange-500 group-hover:text-orange-600' },
+        { name: 'OpenCV', category: 'Computer Vision', customIcon: 'CV', colorClass: 'text-green-500 group-hover:text-green-600' },
+        { name: 'Scikit-Learn', category: 'Machine Learning', customIcon: 'Sk', colorClass: 'text-blue-400 group-hover:text-blue-500' },
+        { name: 'Pandas', category: 'Data Engineering', customIcon: 'Pd', colorClass: 'text-purple-500 group-hover:text-purple-600' },
+        { name: 'MATLAB', category: 'Scientific Computing', customIcon: 'Mat', colorClass: 'text-orange-600 group-hover:text-orange-700' },
+        { name: 'Google Cloud', category: 'Cloud Architecture', iconClass: 'fa-brands fa-google', colorClass: 'text-blue-500 group-hover:text-blue-600' },
+        { name: 'Firebase', category: 'Backend', iconClass: 'fa-solid fa-fire', colorClass: 'text-yellow-400 group-hover:text-yellow-500' },
+        { name: 'Figma', category: 'UI/UX Design', iconClass: 'fa-brands fa-figma', colorClass: 'text-purple-500 group-hover:text-purple-600' },
     ];
 
     return (
@@ -195,13 +197,10 @@ const Skills: React.FC = () => {
                                     {tool.iconContent ? (
                                         <span className={tool.iconClass}>{tool.iconContent}</span>
                                     ) : tool.customIcon ? (
-                                        tool.customIcon === 'D3' ? (
-                                            <span className="text-sm bg-orange-100 rounded w-full h-full flex items-center justify-center">D3</span>
-                                        ) : (
-                                            <span className="font-serif border border-pink-600 px-1 rounded text-lg font-bold">Id</span>
-                                        )
-                                    ) : tool.name === 'R Studio' ? (
-                                        <span className="font-serif font-bold">R</span>
+                                        // Custom Badges for tools without standard FA icons
+                                        <span className="text-sm border-2 border-current px-1 rounded flex items-center justify-center font-bold min-w-[2rem] aspect-square">
+                                            {tool.customIcon}
+                                        </span>
                                     ) : (
                                         <i className={tool.iconClass}></i>
                                     )}
