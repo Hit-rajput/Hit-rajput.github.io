@@ -1,33 +1,38 @@
 import React from 'react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-full py-12 px-4 mt-auto border-t border-white/5 backdrop-blur-sm bg-background/50">
+    <footer className="w-full py-12 px-4 mt-auto border-t border-glass-border backdrop-blur-sm bg-background/50">
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-8">
         <div className="flex items-center gap-8">
           <a
-            href="#"
+            href="https://github.com/Hit-rajput"
             aria-label="Github"
-            className="text-text-muted hover:text-white hover:scale-110 transition-all duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-muted hover:text-text-main hover:scale-110 transition-all duration-300 p-2"
           >
-            <span className="text-xs font-bold tracking-widest">GITHUB</span>
+            <Github size={24} />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/hitesh-rajput-4467b1b9/"
             aria-label="LinkedIn"
-            className="text-text-muted hover:text-accent-primary hover:scale-110 transition-all duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-muted hover:text-accent-primary hover:scale-110 transition-all duration-300 p-2"
           >
-            <span className="text-xs font-bold tracking-widest">LINKEDIN</span>
+            <Linkedin size={24} />
           </a>
           <a
-            href="#"
-            aria-label="Twitter"
-            className="text-text-muted hover:text-accent-primary hover:scale-110 transition-all duration-300"
+            href="mailto:hchauhan@laurentian.ca"
+            aria-label="Email"
+            className="text-text-muted hover:text-accent-glow hover:scale-110 transition-all duration-300 p-2"
           >
-            <span className="text-xs font-bold tracking-widest">TWITTER</span>
+            <Mail size={24} />
           </a>
         </div>
-        <div className="text-white/20 text-[10px] tracking-[0.2em]">
+        <div className="text-text-muted/40 text-[10px] tracking-[0.2em]">
           © 2023 HITESH. ALL RIGHTS RESERVED.
         </div>
       </div>

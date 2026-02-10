@@ -42,19 +42,19 @@ const Skills: React.FC = () => {
                 {skillCategories.map((item, index) => (
                     <div
                         key={index}
-                        className="glass-panel p-6 rounded-2xl border border-white/5 hover:border-accent-primary/30 transition-all duration-300 group"
+                        className="glass-panel p-6 rounded-2xl border border-glass-border hover:border-accent-primary/30 transition-all duration-300 group"
                     >
                         <div className="flex items-center gap-4 mb-4">
                             <span className="material-symbols-outlined text-3xl text-accent-primary group-hover:scale-110 transition-transform duration-300">
                                 {item.icon}
                             </span>
-                            <h3 className="text-xl font-bold text-white tracking-wide">
+                            <h3 className="text-xl font-bold text-text-main tracking-wide">
                                 {item.category}
                             </h3>
                         </div>
                         <p className="text-text-muted leading-relaxed font-light">
                             {item.skills.split(', ').map((skill, i) => (
-                                <span key={i} className="inline-block mr-2 mb-2 px-2 py-1 rounded bg-white/5 hover:bg-white/10 text-sm border border-white/5 transition-colors cursor-default">
+                                <span key={i} className="inline-block mr-2 mb-2 px-2 py-1 rounded bg-glass-surface hover:bg-glass-highlight text-sm border border-glass-border transition-colors cursor-default">
                                     {skill}
                                 </span>
                             ))}

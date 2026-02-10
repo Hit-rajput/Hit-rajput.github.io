@@ -27,8 +27,8 @@ const FilterBar: React.FC<FilterBarProps> = ({ activeCategory, onCategoryChange 
                 className={`
                   px-5 py-2 rounded-full text-xs md:text-sm font-bold tracking-wider transition-all duration-300
                   ${isActive
-                    ? 'bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)] border border-white/20'
-                    : 'text-text-muted hover:text-white hover:bg-white/5 border border-transparent'}
+                    ? 'bg-accent-primary/10 text-accent-primary shadow-[0_0_15px_rgba(var(--accent-primary),0.3)] border border-accent-primary/20'
+                    : 'text-text-muted hover:text-text-main hover:bg-glass-highlight border border-transparent'}
                 `}
               >
                 {cat.label}

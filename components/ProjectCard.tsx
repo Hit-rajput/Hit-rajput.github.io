@@ -22,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
     const yPct = (y / height) - 0.5;
 
     // Parallax intensity (pixels to move)
-    const moveX = xPct * 20; 
+    const moveX = xPct * 20;
     const moveY = yPct * 20;
 
     imageRef.current.style.transform = `scale(1.1) translate(${-moveX}px, ${-moveY}px)`;
@@ -36,15 +36,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
   };
 
   return (
-    <div 
+    <div
       className="masonry-item group cursor-pointer break-inside-avoid perspective-1000"
       onClick={() => onClick(project)}
     >
-      <div 
+      <div
         ref={containerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="glass-panel p-3 md:p-4 rounded-xl transition-all duration-500 hover:bg-glass-highlight hover:border-white/20 hover:shadow-[0_0_30px_rgba(34,211,238,0.05)] hover:-translate-y-1 relative"
+        className="glass-panel p-3 md:p-4 rounded-xl transition-all duration-500 hover:bg-glass-highlight hover:border-glass-border hover:shadow-[0_0_30px_rgba(34,211,238,0.05)] hover:-translate-y-1 relative"
       >
         <div className="overflow-hidden rounded-lg mb-4 relative">
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none"></div>
@@ -56,13 +56,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
             className={`w-full h-auto object-cover transition-transform duration-700 ${project.customStyles || ''}`}
           />
         </div>
-        
+
         <div className="flex flex-col items-center relative z-20">
-          <h3 className="text-lg font-bold text-white group-hover:text-accent-primary transition-colors text-center tracking-tight">
+          <h3 className="text-lg font-bold text-text-main group-hover:text-accent-primary transition-colors text-center tracking-tight">
             {project.title}
           </h3>
-          <div className="h-[1px] w-12 bg-white/10 my-3 group-hover:w-24 group-hover:bg-accent-primary/50 transition-all duration-500"></div>
-          <p className="text-[10px] md:text-xs text-text-muted font-semibold text-center uppercase tracking-[0.2em] group-hover:text-white/80 transition-colors">
+          <div className="h-[1px] w-12 bg-glass-border my-3 group-hover:w-24 group-hover:bg-accent-primary/50 transition-all duration-500"></div>
+          <p className="text-[10px] md:text-xs text-text-muted font-semibold text-center uppercase tracking-[0.2em] group-hover:text-text-main/80 transition-colors">
             {project.category}
           </p>
         </div>

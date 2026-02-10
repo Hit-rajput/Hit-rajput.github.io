@@ -5,6 +5,7 @@ import FilterBar from './components/FilterBar';
 import ProjectGrid from './components/ProjectGrid';
 import Skills from './components/Skills';
 import Footer from './components/Footer';
+import ThemeToggle from './components/ThemeToggle';
 import { Category } from './types';
 
 const App: React.FC = () => {
@@ -37,7 +38,10 @@ const App: React.FC = () => {
         </main>
 
         <Footer />
+
       </div>
+
+      <ThemeToggle />
     </div>
   );
 };
