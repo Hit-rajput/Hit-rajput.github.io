@@ -1,127 +1,158 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hitesh - Data Science Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              background: "rgba(var(--background))",
-              "glass-surface": "rgba(var(--glass-surface))",
-              "glass-highlight": "rgba(var(--glass-highlight))",
-              "glass-border": "rgba(var(--glass-border))",
-              "accent-primary": "rgba(var(--accent-primary))",
-              "accent-secondary": "rgba(var(--accent-secondary))",
-              "accent-glow": "rgba(var(--accent-glow))",
-              "text-main": "rgba(var(--text-main))",
-              "text-muted": "rgba(var(--text-muted))",
-            },
-            fontFamily: {
-              display: ["Manrope", "sans-serif"],
-            },
-            animation: {
-              blob: "blob 10s infinite",
-              "blob-delay": "blob 10s infinite 2s",
-              "blob-slow": "blob 15s infinite 4s",
-            },
-            keyframes: {
-              blob: {
-                "0%": { transform: "translate(0px, 0px) scale(1)" },
-                "33%": { transform: "translate(30px, -50px) scale(1.1)" },
-                "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
-                "100%": { transform: "translate(0px, 0px) scale(1)" },
-              },
-            },
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hitesh - Data Science Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            background: "rgba(var(--background))",
+            "glass-surface": "rgba(var(--glass-surface))",
+            "glass-highlight": "rgba(var(--glass-highlight))",
+            "glass-border": "rgba(var(--glass-border))",
+            "accent-primary": "rgba(var(--accent-primary))",
+            "accent-secondary": "rgba(var(--accent-secondary))",
+            "accent-glow": "rgba(var(--accent-glow))",
+            "text-main": "rgba(var(--text-main))",
+            "text-muted": "rgba(var(--text-muted))",
+            // New colors from user request
+            primary: "#5465C0",
+            secondary: "#3B82F6",
+            "card-light": "#FFFFFF",
+            "card-dark": "#1E293B",
           },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+            sans: ["Inter", "sans-serif"],
+          },
+          animation: {
+            blob: "blob 10s infinite",
+            "blob-delay": "blob 10s infinite 2s",
+            "blob-slow": "blob 15s infinite 4s",
+            float: "float 10s infinite ease-in-out",
+            "float-reverse": "float 12s infinite ease-in-out reverse",
+          },
+          keyframes: {
+            blob: {
+              "0%": { transform: "translate(0px, 0px) scale(1)" },
+              "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+              "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+              "100%": { transform: "translate(0px, 0px) scale(1)" },
+            },
+            float: {
+              "0%": { transform: "translate(0, 0)" },
+              "50%": { transform: "translate(20px, 30px)" },
+              "100%": { transform: "translate(0, 0)" },
+            }
+          },
+          boxShadow: {
+            'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+            'glow': '0 0 40px -10px rgba(84, 101, 192, 0.3)',
+          }
         },
-      };
-    </script>
-    <style>
-      :root {
-        --background: 255, 255, 255, 1;
-        --glass-surface: 0, 0, 0, 0.03;
-        --glass-highlight: 0, 0, 0, 0.05;
-        --glass-border: 0, 0, 0, 0.1;
-        --accent-primary: 6, 182, 212, 1; /* Cyan-500 */
-        --accent-secondary: 168, 85, 247, 1; /* Purple-500 */
-        --accent-glow: 239, 68, 68, 1; /* Red-500 */
-        --text-main: 15, 23, 42, 1; /* Slate-900 */
-        --text-muted: 100, 116, 139, 1; /* Slate-500 */
-      }
-      .dark {
-        --background: 5, 5, 5, 1;
-        --glass-surface: 255, 255, 255, 0.03;
-        --glass-highlight: 255, 255, 255, 0.08;
-        --glass-border: 255, 255, 255, 0.1;
-        --accent-primary: 34, 211, 238, 1; /* Cyan-400 */
-        --accent-secondary: 192, 132, 252, 1; /* Purple-400 */
-        --accent-glow: 248, 113, 113, 1; /* Red-400 */
-        --text-main: 255, 255, 255, 1;
-        --text-muted: 148, 163, 184, 1; /* Slate-400 */
-      }
+      },
+    };
+  </script>
+  <style>
+    :root {
+      --background: 255, 255, 255, 1;
+      --glass-surface: 0, 0, 0, 0.03;
+      --glass-highlight: 0, 0, 0, 0.05;
+      --glass-border: 0, 0, 0, 0.1;
+      --accent-primary: 6, 182, 212, 1;
+      /* Cyan-500 */
+      --accent-secondary: 168, 85, 247, 1;
+      /* Purple-500 */
+      --accent-glow: 239, 68, 68, 1;
+      /* Red-500 */
+      --text-main: 15, 23, 42, 1;
+      /* Slate-900 */
+      --text-muted: 100, 116, 139, 1;
+      /* Slate-500 */
+    }
 
-      body {
-        background-color: rgba(var(--background));
-        color: rgba(var(--text-main));
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: rgba(var(--background));
-      }
-      ::-webkit-scrollbar-thumb {
-        background: rgba(var(--text-muted), 0.5);
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: rgba(var(--text-muted), 0.8);
-      }
-      
-      /* Masonry Layout */
+    .dark {
+      --background: 5, 5, 5, 1;
+      --glass-surface: 255, 255, 255, 0.03;
+      --glass-highlight: 255, 255, 255, 0.08;
+      --glass-border: 255, 255, 255, 0.1;
+      --accent-primary: 34, 211, 238, 1;
+      /* Cyan-400 */
+      --accent-secondary: 192, 132, 252, 1;
+      /* Purple-400 */
+      --accent-glow: 248, 113, 113, 1;
+      /* Red-400 */
+      --text-main: 255, 255, 255, 1;
+      --text-muted: 148, 163, 184, 1;
+      /* Slate-400 */
+    }
+
+    body {
+      background-color: rgba(var(--background));
+      color: rgba(var(--text-main));
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(var(--background));
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(var(--text-muted), 0.5);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(var(--text-muted), 0.8);
+    }
+
+    /* Masonry Layout */
+    .masonry-grid {
+      column-count: 1;
+      column-gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
       .masonry-grid {
-        column-count: 1;
-        column-gap: 1.5rem;
+        column-count: 2;
       }
-      @media (min-width: 640px) {
-        .masonry-grid {
-          column-count: 2;
-        }
-      }
-      @media (min-width: 1024px) {
-        .masonry-grid {
-          column-count: 3;
-        }
-      }
-      .masonry-item {
-        break-inside: avoid;
-        margin-bottom: 1.5rem;
-      }
+    }
 
-      /* Liquid Glass Utilities */
-      .glass-panel {
-        background: rgba(var(--glass-surface));
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(var(--glass-border));
+    @media (min-width: 1024px) {
+      .masonry-grid {
+        column-count: 3;
       }
-    </style>
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Liquid Glass Utilities */
+    .glass-panel {
+      background: rgba(var(--glass-surface));
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(var(--glass-border));
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -134,9 +165,12 @@
 }
 </script>
 </head>
-  <body class="bg-background font-display text-text-main antialiased overflow-x-hidden selection:bg-accent-primary selection:text-black">
-    <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
 
-  </body>
+<body
+  class="bg-background font-display text-text-main antialiased overflow-x-hidden selection:bg-accent-primary selection:text-black">
+  <div id="root"></div>
+  <script type="module" src="./index.tsx"></script>
+
+</body>
+
 </html>
