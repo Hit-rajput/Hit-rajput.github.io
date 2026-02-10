@@ -4,6 +4,7 @@ import ferImg from './Images/Face_stucture.png';
 import ferHistImg from './Images/Face_histogram.png';
 
 import gameConsoleImg from './Images/Game_console.png';
+import ridgePlotGif from './Images/Ridge_plot.gif';
 import forestFireGif from './Images/Forest_fires.gif';
 
 // Supply Risk Monitor Images
@@ -113,17 +114,16 @@ export const PROJECTS: Project[] = [
     title: 'Global Gaming Market Analysis (1980-2016)',
     category: 'TABLEAU / MARKET ANALYSIS',
     filterCategory: 'DATA VISUALIZATION',
-    image: 'https://public.tableau.com/static/images/gl/global_sales_distribution_Rideline/GLobalSalesDistribution/1.png',
+    image: ridgePlotGif,
     overview: 'This dashboard explores the dominance of key industry players through a custom-built Ridgeline Plot and Packed Bubble Chart.',
     detailedDescription: 'Key Functionality: Contextual Filtering. The dashboard features a hover action on the ridgeline distribution that automatically filters the bottom Area Chart. This allows the user to instantly compare a specific publisher\'s individual trajectory (e.g., Nintendo\'s Wii era spike) against the backdrop of total global sales.',
     gallery: [
-      'https://public.tableau.com/static/images/gl/global_sales_distribution_Rideline/GLobalSalesDistribution/1.png'
+      ridgePlotGif
     ],
     techStack: [
       { name: 'Tableau', icon: 'https://cdn.worldvectorlogo.com/logos/tableau-software.svg' }
     ],
     liveUrl: 'https://public.tableau.com/views/global_sales_distribution_Rideline/GLobalSalesDistribution?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
-    embedCode: `<div class='tableauPlaceholder' id='viz1770738516816' style='position: relative'><noscript><a href='#'><img alt='GLobal Sales Distribution ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;gl&#47;global_sales_distribution_Rideline&#47;GLobalSalesDistribution&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='global_sales_distribution_Rideline&#47;GLobalSalesDistribution' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;gl&#47;global_sales_distribution_Rideline&#47;GLobalSalesDistribution&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>`,
   },
   {
     id: '5',
