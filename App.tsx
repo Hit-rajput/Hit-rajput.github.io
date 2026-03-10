@@ -6,6 +6,7 @@ import ProjectGrid from './components/ProjectGrid';
 import Skills from './components/Skills';
 import Footer from './components/Footer';
 import ThemeToggle from './components/ThemeToggle';
+import CustomCursor from './components/CustomCursor';
 import { Category } from './types';
 
 const App: React.FC = () => {
@@ -42,6 +43,7 @@ const App: React.FC = () => {
       </div>
 
       <ThemeToggle />
+      <CustomCursor />
     </div>
   );
 };

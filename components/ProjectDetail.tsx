@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Project } from '../types';
 
 interface ProjectDetailProps {
@@ -7,6 +7,26 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
+  const allImages = [project.image, ...project.gallery];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentImage = allImages[currentIndex];
+  const thumbContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollThumbnails = (direction: 'left' | 'right') => {
+    if (thumbContainerRef.current) {
+      const scrollAmount = thumbContainerRef.current.clientWidth * 0.8;
+      thumbContainerRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % allImages.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  };
+
   // Inject Tableau script if needed
   React.useEffect(() => {
     if (project.embedCode) {
@@ -28,8 +48,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
         <button
           onClick={onClose}
           className="flex items-center gap-2 text-text-muted hover:text-text-main transition-colors group"
+          data-cursor="hover"
         >
-          <span className="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
+          <span className="material-symbols-outlined group-hover:-translate-x-1 transition-transform pointer-events-none">arrow_back</span>
           <span className="text-sm font-bold tracking-widest">BACK TO PROJECTS</span>
         </button>
       </div>
@@ -85,8 +106,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                   <a
                     href={project.liveUrl}
                     className="flex items-center gap-2 bg-text-main text-background px-6 py-3 rounded-full font-bold text-sm tracking-wide hover:bg-accent-primary hover:text-black transition-all hover:scale-105"
+                    data-cursor="hover"
                   >
-                    <span>LAUNCH PROJECT</span>
+                    <span className="pointer-events-none">LAUNCH PROJECT</span>
                     <span className="material-symbols-outlined text-lg">open_in_new</span>
                   </a>
                 )}
@@ -94,8 +116,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                   <a
                     href={project.repoUrl}
                     className="flex items-center gap-2 bg-transparent border border-glass-border text-text-main px-6 py-3 rounded-full font-bold text-sm tracking-wide hover:bg-glass-highlight transition-all"
+                    data-cursor="hover"
                   >
-                    <span>VIEW CODE</span>
+                    <span className="pointer-events-none">VIEW CODE</span>
                     <span className="material-symbols-outlined text-lg">code</span>
                   </a>
                 )}
@@ -112,22 +135,60 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                 {project.embedCode ? (
                   <div className="w-full overflow-hidden" dangerouslySetInnerHTML={{ __html: project.embedCode }}></div>
                 ) : (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className={`w-full h-auto object-cover max-h-[500px] ${project.customStyles || ''}`}
-                  />
+                  <>
+                    <img
+                      src={currentImage}
+                      alt={project.title}
+                      className={`w-full h-auto object-cover max-h-[500px] ${project.customStyles || ''}`}
+                    />
+                    {allImages.length > 1 && (
+                      <>
+                        <button
+                          onClick={handlePrev}
+                          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-sm transition-all z-20 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                          data-cursor="hover"
+                        >
+                          <span className="material-symbols-outlined pointer-events-none">chevron_left</span>
+                        </button>
+                        <button
+                          onClick={handleNext}
+                          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-sm transition-all z-20 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                          data-cursor="hover"
+                        >
+                          <span className="material-symbols-outlined pointer-events-none">chevron_right</span>
+                        </button>
+                      </>
+                    )}
+                  </>
                 )}
               </div>
 
               {/* Thumbnails / Additional Images (Horizontal Scroll) */}
-              {project.gallery.length > 0 && (
-                <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide snap-x">
-                  {project.gallery.map((img, idx) => (
-                    <div key={idx} className="min-w-[150px] w-[30%] aspect-video rounded-lg overflow-hidden border border-white/10 cursor-pointer hover:border-accent-primary transition-colors snap-start">
-                      <img src={img} alt={`Screenshot ${idx}`} className="w-full h-full object-cover" />
-                    </div>
-                  ))}
+              {allImages.length > 1 && (
+                <div className="relative group/thumbs mt-2">
+                  <button
+                    onClick={() => scrollThumbnails('left')}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white p-1 rounded-r-md backdrop-blur-sm transition-all z-20 flex items-center justify-center opacity-0 group-hover/thumbs:opacity-100 h-[calc(100%-1rem)] border border-white/10 border-l-0"
+                    data-cursor="hover"
+                  >
+                    <span className="material-symbols-outlined font-bold text-sm pointer-events-none">chevron_left</span>
+                  </button>
+
+                  <div ref={thumbContainerRef} className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide snap-x scroll-smooth">
+                    {allImages.map((img, idx) => (
+                      <div key={idx} onClick={() => setCurrentIndex(idx)} className={`min-w-[100px] md:min-w-[150px] w-[30%] aspect-video rounded-lg overflow-hidden border ${currentIndex === idx ? 'border-accent-primary shadow-[0_0_10px_rgba(var(--accent-primary),0.5)]' : 'border-white/10'} cursor-pointer hover:border-accent-primary transition-all snap-start flex-shrink-0`}>
+                        <img src={img} alt={`Screenshot ${idx}`} className="w-full h-full object-cover" />
+                      </div>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() => scrollThumbnails('right')}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white p-1 rounded-l-md backdrop-blur-sm transition-all z-20 flex items-center justify-center opacity-0 group-hover/thumbs:opacity-100 h-[calc(100%-1rem)] border border-white/10 border-r-0"
+                    data-cursor="hover"
+                  >
+                    <span className="material-symbols-outlined font-bold text-sm pointer-events-none">chevron_right</span>
+                  </button>
                 </div>
               )}
             </div>

@@ -35,6 +35,7 @@ const ThemeToggle: React.FC = () => {
             <motion.button
                 onClick={toggleTheme}
                 className="relative flex items-center justify-center w-14 h-14 rounded-full glass-panel shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden border border-glass-border"
+                data-cursor="block"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -42,7 +43,7 @@ const ThemeToggle: React.FC = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
                 {/* Subtle gradient background on the button itself */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-accent-primary/20 to-accent-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-accent-primary/20 to-accent-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                 <AnimatePresence mode="wait" initial={false}>
                     {isDark ? (
@@ -52,7 +53,7 @@ const ThemeToggle: React.FC = () => {
                             animate={{ y: 0, opacity: 1, rotate: 0 }}
                             exit={{ y: 20, opacity: 0, rotate: 90 }}
                             transition={{ duration: 0.2 }}
-                            className="text-accent-primary"
+                            className="text-accent-primary pointer-events-none"
                         >
                             <Moon size={24} fill="currentColor" className="opacity-80" />
                         </motion.div>
@@ -63,7 +64,7 @@ const ThemeToggle: React.FC = () => {
                             animate={{ y: 0, opacity: 1, rotate: 0 }}
                             exit={{ y: 20, opacity: 0, rotate: 90 }}
                             transition={{ duration: 0.2 }}
-                            className="text-amber-400"
+                            className="text-amber-400 pointer-events-none"
                         >
                             <Sun size={24} fill="currentColor" className="opacity-80" />
                         </motion.div>

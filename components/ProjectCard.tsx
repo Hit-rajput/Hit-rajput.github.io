@@ -39,25 +39,26 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
     <div
       className="masonry-item group cursor-pointer break-inside-avoid perspective-1000"
       onClick={() => onClick(project)}
+      data-cursor="block"
     >
       <div
         ref={containerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="glass-panel p-3 md:p-4 rounded-xl transition-all duration-500 hover:bg-glass-highlight hover:border-glass-border hover:shadow-[0_0_30px_rgba(34,211,238,0.05)] hover:-translate-y-1 relative"
+        className="glass-panel p-3 md:p-4 rounded-xl transition-all duration-500 hover:bg-glass-highlight hover:border-glass-border hover:shadow-[0_0_30px_rgba(34,211,238,0.05)] hover:-translate-y-1 relative pointer-events-none"
       >
-        <div className="overflow-hidden rounded-lg mb-4 relative">
+        <div className="overflow-hidden rounded-lg mb-4 relative pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none"></div>
           <img
             ref={imageRef}
             src={project.image}
             alt={project.title}
             loading="lazy"
-            className={`w-full h-auto object-cover transition-transform duration-700 ${project.customStyles || ''}`}
+            className={`w-full h-auto object-cover transition-transform duration-700 pointer-events-none ${project.customStyles || ''}`}
           />
         </div>
 
-        <div className="flex flex-col items-center relative z-20">
+        <div className="flex flex-col items-center relative z-20 pointer-events-none">
           <h3 className="text-lg font-bold text-text-main group-hover:text-accent-primary transition-colors text-center tracking-tight">
             {project.title}
           </h3>
